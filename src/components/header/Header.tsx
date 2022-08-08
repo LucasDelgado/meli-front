@@ -1,6 +1,6 @@
 import { SearchBar } from "../searchbar/Searchbar";
 import style from "./header.module.scss";
-import logo from "../../assets/logo.png";
+import logo from "../../utils/assets/logo.png";
 
 export const Header = () => {
   return (
