@@ -1,0 +1,14 @@
+.searchBar {
+  display: grid;
+  grid-template-columns: 1fr 42px;
+  &__input {
+    background-color: #fff;
+    padding: 8px 8px 8px 16px;
+    display: block;
+    width: 100%;
+  }
+  &__button {
+    background-color: var(--neutral-xLight);
+    cursor: pointer;
+  }
+}

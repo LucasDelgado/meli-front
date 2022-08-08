@@ -1,0 +1,33 @@
+@import "../../utils/styleGlobal//base/variables.scss";
+
+.breadcumb {
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--neutral-med);
+  padding: 0 16px;
+
+  @media ($media-m) {
+    padding: 0;
+  }
+
+  li {
+    position: relative;
+    &:not(:last-child) {
+      padding-right: 24px;
+      &::after {
+        content: " ";
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        top: 5px;
+        right: 9px;
+        border-top: 2px solid var(--neutral-med);
+        border-right: 2px solid var(--neutral-med);
+        transform: rotate(45deg);
+      }
+    }
+    &:last-child {
+      font-weight: bold;
+    }
+  }
+}

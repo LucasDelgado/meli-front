@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import ErrorBoundary from "./components/errorBoundary/ErrorBoundary";
+import { ErrorHandler } from "./components/errorHandler/ErrorHandler";
+import { Layout } from "./components/layout/Layout";
+import { ItemId } from "./pages/items/ItemId";
+import { Items } from "./pages/items/Items";
+import { useStore } from "./store/storeProvider";
 
 function App() {
+  const { loading } = useStore();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`App ${loading ? "active" : ""}`}>
+      <ErrorBoundary>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<div></div>} />
+            <Route path="items" element={<Items />} />
+            <Route path="items/:id" element={<ItemId />} />
+            <Route path="*" element={<ErrorHandler status={404} />} />
+          </Routes>
+        </Layout>
+      </ErrorBoundary>
     </div>
   );
 }

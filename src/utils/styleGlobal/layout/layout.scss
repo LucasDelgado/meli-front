@@ -1,0 +1,13 @@
+.main {
+  max-width: 1184px;
+  min-height: 100vh;
+  margin: 16px auto 0;
+
+  @media ($media-m) {
+    padding: 0 16px;
+  }
+
+  & > section {
+    background-color: #fff;
+  }
+}

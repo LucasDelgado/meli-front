@@ -1,0 +1,48 @@
+@import "../../utils/styleGlobal//base/variables.scss";
+
+.itemIdDetail {
+  display: grid;
+  row-gap: 48px;
+  padding: 0 16px;
+  @media ($media-m) {
+    padding: 0 32px;
+  }
+
+  &__main {
+    display: flex;
+    column-gap: 16px;
+    flex-direction: column;
+
+    @media ($media-m) {
+      flex-direction: row;
+    }
+
+    &__img {
+      width: 100%;
+      max-width: 680px;
+      & > img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &__cont {
+      margin-top: 16px;
+      @media ($media-m) {
+        flex-basis: 380px;
+        margin-top: 32px;
+      }
+
+      &__title {
+        max-width: 350px;
+      }
+    }
+  }
+
+  &__descrip {
+    & > p {
+      max-width: 768px;
+      color: var(--neutral-med);
+    }
+  }
+}

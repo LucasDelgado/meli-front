@@ -1,0 +1,64 @@
+//=======================================
+// MEDIA QUERIES
+//=======================================
+$media-xs: "min-width : 320px";
+$media-s: "min-width : 360px";
+$media-m: "min-width: 768px";
+$media-l: "min-width: 1024px";
+$media-xl: "min-width: 1280px";
+
+//=======================================
+// FONTS
+//=======================================
+/*
+12px   xxs
+14px    xs
+16px     s
+18px     m
+24px     l
+28px    xl
+46px    xxl 
+*/
+
+@mixin font-xxs {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+@mixin font-xs {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+@mixin font-s {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+@mixin font-m {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+@mixin font-l {
+  font-size: 24px;
+  line-height: 26px;
+}
+
+@mixin font-xl {
+  font-size: 28px;
+  line-height: 30px;
+}
+
+@mixin font-xxl {
+  font-size: 46px;
+  line-height: 42px;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
+}
+
+.mb-32 {
+  margin-bottom: 32px;
+}

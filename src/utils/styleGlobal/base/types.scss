@@ -1,0 +1,53 @@
+@import "./variables.scss";
+//=======================================
+// FONTS
+//=======================================
+/*
+12px   xxs
+14px    xs
+16px     s
+18px     m
+24px     l
+28px    xl
+46px    xxl 
+*/
+.font-xxs {
+  @include font-xxs;
+}
+
+.font-xs {
+  @include font-xs;
+}
+
+.font-s {
+  @include font-s;
+}
+
+.font-m {
+  @include font-m;
+}
+
+.font-l {
+  @include font-l;
+}
+
+.font-xl {
+  @include font-l;
+
+  @media ($media-m) {
+    @include font-xl;
+  }
+}
+
+.font-xxl {
+  @include font-xl;
+
+  @media ($media-m) {
+    @include font-xxl;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

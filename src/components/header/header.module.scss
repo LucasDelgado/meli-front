@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary-color);
+  padding: 8px 16px;
+
+  &__nav {
+    width: 100%;
+    max-width: 700px;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    column-gap: 16px;
+    align-items: center;
+  }
+}
