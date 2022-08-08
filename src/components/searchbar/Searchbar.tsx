@@ -1,7 +1,7 @@
 import style from "./searchbar.module.scss";
 
 import { useSearchBar } from "./hook/useSearchBar";
-import { LupaSVG } from "../../svgs";
+import { LupaSVG } from "../../utils/assets/svgs";
 
 export const SearchBar = () => {
   const [searchValue, handleChange, handleSubmit] = useSearchBar();
