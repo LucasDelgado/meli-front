@@ -1,46 +1,108 @@
-# Getting Started with Create React App
+# Desafío MELI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Soy Lucas Delgado y este es mi desafío de **MELI**.
 
-## Available Scripts
+De acuerdo a los requerimientos, he decidido que este era el mejor camino.
 
-In the project directory, you can run:
+## En el Frontend:
 
-### `npm start`
+Una aplicación creada con Create-react-app con Typescript.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- La app tiene declaradas las entidades core de la app. Gracias a la infra que nos da TS.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Tenemos varios test unitarios.
 
-### `npm test`
+- la arquitectura del proyecto está toda organizada de manera **modular**, esto puede variar dependiendo de las costumbres del equipo. Me pareció, que en este caso, la mejor manera para distribuir los archivos.
+- En los estilos utilizamos modules de **SASS**. Con nomenclatura en **BEM**. Paleta de colores directamente en el **:root**. Sume algunas clases helpers, que siguen un poco la lógica de **tailwind** en donde los estilos son aplicados en función de **utilidad**.
+- Creamos un **contexto global** (tipo redux) con las apis que ya nos provee React nativamente. Con **useContext** y **useReducer**. La aplicación del mismo es para resolver algo simple como el loading pero se hizo con el fin de sumar valor al challenge.
+- Utilizamos un api de servicios sin ninguna solución externa, todo desarrollado con **JS VANILLA**. Aunque también, en el Backend, utilice AXIOS. Para tener diversificados los llamados con diferentes soluciones.
+- Se trató de respetar los principios **SOLID** en el desarrollo. Y todo a modo escalable.
+- Se podría crear adapters, como los hicimos en el Back. Pero me pareció que no era necesario ya que, en este caso, nosotros somos responsables del middleware. Entonces delegamos esa responsabilidad en el backend.
+- Se pudo haber creado archivos .env pero para evitar tantas configuraciones para hacerlo funcionar si se descargan el proyecto, trate de evitarlo.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Algunos puntos a tener en cuenta.
 
-### `npm run build`
+- Uno de los requerimientos a tener en cuenta era el **SEO**. Se aplicó head custom con **Helmet, HTML5 semántico** para también sumar valor a la usabilidad. Y uno de los puntos fuertes en cuestión del SEO orgánico es el SSR (server side render).
+  Al ser una app SPA, renderiza todo del lado del cliente el cual puede afectar el SEO. Google nos dice que esto no suele ser así ya que sus robots indexan contenido creado por JS, pero otros buscadores pueden tener problemas.
+  Entonces realizar un SSR manualmente lleva un tiempo considerable para desarrollarlo en un challenge. Hay una solución rápida. Y es utilizar **NEXT.JS** (lo amo) Que nos provee herramientas geniales para solucionar este problema y muchos otros.
+  Si bien encajaba perfectamente con todos los requerimientos, me pareció mucho más desafiante tratar de NO utilizar nada de esos frameworks, que nos soluciona temas como el RUTEO y muchas más, ya que el objetivo del proyecto es demostrar los skills.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## En el Backend:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+En el back de la misma forma que en front utilizamos Typescript, junto a express.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- También organizamos el proyecto de **forma modular**, respetando las bases de MVC.
 
-### `npm run eject`
+- Aplicamos a los servicios el patrón (antipatrón :P ) **Singleton** para ahorrar memoria en el caso de instanciarlo en otro lugar.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Creamos algunos **middlewares** como el de **errores** para tenerlo un poco separado de la lógica y poder manipularlos de un modo más simple, con función para logeos en servicios externos.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Utilice **AXIOS** para los fetchs.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- **Mapeamos los datos**, para prevenir errores o cambios en la fuente de información. En este caso se resuelve mucho más fácil cambiar o agregar o quitar alguna propiedad.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Aplicamos en uno de los llamados **promise all**. Esto tiene sus ventajas y otras no tantas. Lo agregue como un modo de hacer algo diferente a lo que se venía haciendo.
 
-## Learn More
+Bueno creo que esos son los puntos claves, si no me estoy olvidando de nada.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Para correr los proyectos.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Frontend:
+
+```bash
+npm install
+```
+
+```bash
+npm start
+```
+
+Para correr los test
+
+```bash
+npm run test
+```
+
+## Backend:
+
+```bash
+npm install
+```
+
+```bash
+npm run build
+```
+
+```bash
+npm run dev
+```
+
+(Si es la 1ra vez que se corre el proyecto, a veces no reconoce la carpeta que arma el build, hay que cerrar la consola, o el Visual Code y luego correr el npm run dev)
+
+## Deploys
+
+### la app Frontend esta deployada en Vercel:
+
+[https://meli-front-two.vercel.app/](https://meli-front-two.vercel.app/)
+
+### la app Back esta deployada en Heroku:
+
+[https://meli-api-lucas.herokuapp.com/](https://meli-api-lucas.herokuapp.com/)
+
+## los proyectos en github son:
+
+### Frontend:
+
+[https://github.com/LucasDelgado/meli-front](https://github.com/LucasDelgado/meli-front)
+
+[https://github1s.com/LucasDelgado/meli-front](https://github1s.com/LucasDelgado/meli-front)
+
+(para verlo como el Visual Code sin descargarlo)
+
+### Backend:
+
+[https://github.com/LucasDelgado/meli-api](https://github.com/LucasDelgado/meli-api)
+
+[https://github1s.com/LucasDelgado/meli-api](https://github1s.com/LucasDelgado/meli-api)
+
+(para verlo como el Visual Code sin descargarlo)
